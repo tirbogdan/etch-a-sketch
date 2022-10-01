@@ -25,6 +25,7 @@ body {
   width: 40rem;
   height: 40rem;
   border-radius: 10px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 
 .buttons {
@@ -37,6 +38,7 @@ button {
   width: 5rem;
   height: 5rem;
   border-radius: 50%;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
 }
 
 .left-buttons,
@@ -57,4 +59,65 @@ button {
 .rainbow,
 .reset {
   margin-top: 20px;
+}
+
+.slider-container {
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.slider {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 100%;
+  height: 25px;
+  background: white;
+  opacity: 0.9;
+  border-radius: 15px;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+/* Special styling for WebKit/Blink */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+  margin-top: 0px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */
+}
+
+/* All the same stuff for Firefox */
+input[type="range"]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type="range"]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.slider-paragraph {
+  font-family: "Qwigley", cursive;
+  color: rgb(213 173 69);
+  font-size: 50px;
+  font-weight: bold;
 }
