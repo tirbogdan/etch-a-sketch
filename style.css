@@ -17,5 +17,12 @@ body {
   font-family: "Qwigley", cursive;
   font-size: 80px;
   color: rgb(213 173 69);
-  margin-top: 10%;
+  margin-top: 5%;
+}
+
+.drawing-zone {
+  background-color: white;
+  width: 50rem;
+  height: 50rem;
+  border-radius: 10px;
 }
