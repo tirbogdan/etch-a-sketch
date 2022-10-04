@@ -20,14 +20,6 @@ body {
   margin-top: 30px;
 }
 
-.drawing-zone {
-  background-color: white;
-  width: 40rem;
-  height: 40rem;
-  border-radius: 10px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-}
-
 .buttons {
   display: flex;
   justify-content: space-between;
@@ -120,4 +112,17 @@ input[type="range"]::-ms-thumb {
   color: rgb(213 173 69);
   font-size: 50px;
   font-weight: bold;
+}
+
+.pixel {
+  border: 1px solid rgba(107, 103, 103, 0.143);
+}
+
+.drawing-zone {
+  background-color: white;
+  width: 40rem;
+  height: 40rem;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  display: grid;
 }
