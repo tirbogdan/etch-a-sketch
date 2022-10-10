@@ -1,12 +1,16 @@
 const slider = document.querySelector(".slider");
 const output = document.getElementById("slider-value");
-const resetButton = document.querySelector(".reset-grid-button");
 const drawingZone = document.querySelector(".drawing-zone");
+const resetButton = document.querySelector(".reset-grid-button");
+const eraseButton = document.querySelector(".erase-button");
 
 // Display the default slider value
-output.innerHTML = `${slider.value} x ${slider.value}`;
-createGrid();
-displayGrid();
+function start() {
+  output.innerHTML = `${slider.value} x ${slider.value}`;
+  createGrid();
+  displayGrid();
+  draw("#000000");
+}
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function () {
@@ -37,11 +41,11 @@ function displayGrid() {
   );
 }
 
-function draw() {
+function draw(color) {
   const pixels = document.querySelectorAll(".pixel");
   pixels.forEach((pixel) => {
     pixel.addEventListener("pointerenter", () => {
-      pixel.style.setProperty("background-color", "black");
+      pixel.style.setProperty("background-color", `${color}`);
     });
   });
 }
@@ -50,7 +54,11 @@ resetButton.addEventListener("click", () => {
   drawingZone.innerHTML = "";
   createGrid();
   displayGrid();
-  draw();
+  draw("#000000");
 });
 
-draw();
+eraseButton.addEventListener("pointerenter", () => {
+  draw("#ffffff");
+});
+
+start();
