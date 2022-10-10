@@ -1,6 +1,8 @@
 const slider = document.querySelector(".slider");
 const output = document.getElementById("slider-value");
 const drawingZone = document.querySelector(".drawing-zone");
+const drawButton = document.querySelector(".draw-button");
+const rainbowButton = document.querySelector(".rainbow-button");
 const resetButton = document.querySelector(".reset-grid-button");
 const eraseButton = document.querySelector(".erase-button");
 
@@ -50,6 +52,23 @@ function draw(color) {
   });
 }
 
+function getRandomNumber() {
+  return Math.trunc(Math.random() * 255);
+}
+
+function getRandomColor() {
+  return `rgb(${getRandomNumber()}, ${getRandomNumber()}, ${getRandomNumber()})`;
+}
+
+drawButton.addEventListener("click", () => {
+  draw("#000000");
+});
+
+rainbowButton.addEventListener("click", () => {
+  console.log(getRandomColor());
+  draw(getRandomColor());
+});
+
 resetButton.addEventListener("click", () => {
   drawingZone.innerHTML = "";
   createGrid();
@@ -57,7 +76,7 @@ resetButton.addEventListener("click", () => {
   draw("#000000");
 });
 
-eraseButton.addEventListener("pointerenter", () => {
+eraseButton.addEventListener("click", () => {
   draw("#ffffff");
 });
 
