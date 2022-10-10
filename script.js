@@ -5,14 +5,15 @@ const drawingZone = document.querySelector(".drawing-zone");
 
 // Display the default slider value
 output.innerHTML = `${slider.value} x ${slider.value}`;
+createGrid();
+displayGrid();
 
 // Update the current slider value (each time you drag the slider handle)
 slider.oninput = function () {
   output.innerHTML = `${this.value} x ${this.value}`;
 };
 
-resetButton.addEventListener("click", () => {
-  drawingZone.innerHTML = "";
+function createGrid() {
   for (let i = 0; i < slider.value; i++) {
     for (let j = 0; j < slider.value; j++) {
       const pixel = document.createElement("div");
@@ -20,6 +21,9 @@ resetButton.addEventListener("click", () => {
       drawingZone.appendChild(pixel);
     }
   }
+}
+
+function displayGrid() {
   drawingZone.setAttribute(
     "style",
     `grid-template-columns: repeat(${slider.value}, ${
@@ -31,4 +35,10 @@ resetButton.addEventListener("click", () => {
     "style",
     `width: ${100 / slider.value}%; height: ${100 / slider.value}%;`
   );
+}
+
+resetButton.addEventListener("click", () => {
+  drawingZone.innerHTML = "";
+  createGrid();
+  displayGrid();
 });
