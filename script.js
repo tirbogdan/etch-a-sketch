@@ -37,8 +37,20 @@ function displayGrid() {
   );
 }
 
+function draw() {
+  const pixels = document.querySelectorAll(".pixel");
+  pixels.forEach((pixel) => {
+    pixel.addEventListener("pointerenter", () => {
+      pixel.style.setProperty("background-color", "black");
+    });
+  });
+}
+
 resetButton.addEventListener("click", () => {
   drawingZone.innerHTML = "";
   createGrid();
   displayGrid();
+  draw();
 });
+
+draw();
