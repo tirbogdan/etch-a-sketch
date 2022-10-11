@@ -6,19 +6,14 @@ const rainbowButton = document.querySelector(".rainbow-button");
 const resetButton = document.querySelector(".reset-grid-button");
 const eraseButton = document.querySelector(".erase-button");
 
-// Display the default slider value
-function start() {
-  output.innerHTML = `${slider.value} x ${slider.value}`;
-  createGrid();
-  displayGrid();
-  draw("#000000");
-}
-
 // Update the current slider value (each time you drag the slider handle)
+/////////////////////////////////////////////////////////////////////////
 slider.oninput = function () {
   output.innerHTML = `${this.value} x ${this.value}`;
 };
 
+//Implement grid
+/////////////////////////////////////////////////////
 function createGrid() {
   for (let i = 0; i < slider.value; i++) {
     for (let j = 0; j < slider.value; j++) {
@@ -43,15 +38,8 @@ function displayGrid() {
   );
 }
 
-function draw(color) {
-  const pixels = document.querySelectorAll(".pixel");
-  pixels.forEach((pixel) => {
-    pixel.addEventListener("pointerenter", () => {
-      pixel.style.setProperty("background-color", `${color}`);
-    });
-  });
-}
-
+//Draw functionality
+////////////////////////////////////////////////////////////////////////////
 function getRandomNumber() {
   return Math.trunc(Math.random() * 255);
 }
@@ -59,14 +47,27 @@ function getRandomNumber() {
 function getRandomColor() {
   return `rgb(${getRandomNumber()}, ${getRandomNumber()}, ${getRandomNumber()})`;
 }
+function draw(color, rainbow = false) {
+  const pixels = document.querySelectorAll(".pixel");
+  pixels.forEach((pixel) => {
+    pixel.addEventListener("pointerenter", () => {
+      pixel.style.setProperty(
+        "background-color",
+        `${rainbow ? getRandomColor() : color}`
+      );
+    });
+  });
+}
 
+//Buttons
+//////////////////////////////////////////////
 drawButton.addEventListener("click", () => {
   draw("#000000");
 });
 
 rainbowButton.addEventListener("click", () => {
   console.log(getRandomColor());
-  draw(getRandomColor());
+  draw("rainbow", true);
 });
 
 resetButton.addEventListener("click", () => {
@@ -79,5 +80,14 @@ resetButton.addEventListener("click", () => {
 eraseButton.addEventListener("click", () => {
   draw("#ffffff");
 });
+
+// Display the default slider value
+/////////////////////////////////////////////////////////
+function start() {
+  output.innerHTML = `${slider.value} x ${slider.value}`;
+  createGrid();
+  displayGrid();
+  draw("#000000");
+}
 
 start();
