@@ -15,31 +15,33 @@
     <script defer src="script.js"></script>
   </head>
   <body>
-    <h1 class="title">Etch-a-Sketch</h1>
-    <div class="drawing-zone"></div>
-    <div class="buttons">
-      <div class="left-buttons">
-        <div class="draw button-container">
-          <button class="draw-button"></button>
-          <h2>Draw</h2>
+    <div class="content">
+      <h1 class="title">Etch-a-Sketch</h1>
+      <div class="drawing-zone"></div>
+      <div class="buttons-container">
+        <div class="left-buttons">
+          <div class="draw button-container">
+            <button class="draw-button"></button>
+            <h2>Draw</h2>
+          </div>
+          <div class="rainbow button-container">
+            <button class="rainbow-button"></button>
+            <h2>Rainbow</h2>
+          </div>
         </div>
-        <div class="rainbow button-container">
-          <button class="rainbow-button"></button>
-          <h2>Rainbow</h2>
+        <div class="slider-container">
+          <input type="range" min="1" max="64" value="32" class="slider" />
+          <p class="slider-paragraph">Grid: <span id="slider-value"></span></p>
         </div>
-      </div>
-      <div class="slider-container">
-        <input type="range" min="1" max="64" value="32" class="slider" />
-        <p class="slider-paragraph">Grid: <span id="slider-value"></span></p>
-      </div>
-      <div class="right-buttons">
-        <div class="reset button-container">
-          <button class="reset-grid-button"></button>
-          <h2>Reset</h2>
-        </div>
-        <div class="erase button-container">
-          <button class="erase-button"></button>
-          <h2>Erase</h2>
+        <div class="right-buttons">
+          <div class="reset button-container">
+            <button class="reset-grid-button"></button>
+            <h2>Reset</h2>
+          </div>
+          <div class="erase button-container">
+            <button class="erase-button"></button>
+            <h2>Erase</h2>
+          </div>
         </div>
       </div>
     </div>

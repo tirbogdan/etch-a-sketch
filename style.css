@@ -1,6 +1,7 @@
 * {
   margin: 0;
   padding: 0;
+  overflow: hidden;
 }
 
 body {
@@ -13,14 +14,42 @@ body {
   align-items: center;
 }
 
+.content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Top */
+
 .title {
   font-family: "Qwigley", cursive;
+  overflow: visible;
   font-size: 80px;
   color: rgb(213 173 69);
   margin-top: 30px;
 }
 
-.buttons {
+/* Middle */
+.pixel {
+  border: 1px solid rgba(107, 103, 103, 0.143);
+}
+
+.drawing-zone {
+  background-color: white;
+  width: 70vmin;
+  height: 70vmin;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  display: grid;
+}
+
+/* Bottom */
+
+.buttons-container {
   display: flex;
   justify-content: space-between;
   width: 50rem;
@@ -112,17 +141,4 @@ input[type="range"]::-ms-thumb {
   color: rgb(213 173 69);
   font-size: 50px;
   font-weight: bold;
-}
-
-.pixel {
-  border: 1px solid rgba(107, 103, 103, 0.143);
-}
-
-.drawing-zone {
-  background-color: white;
-  width: 40rem;
-  height: 40rem;
-  border-radius: 10px;
-  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-  display: grid;
 }
